@@ -22,13 +22,13 @@ import static com.example.demo.pokemon.Calls.GET_CARDS;
 public class ProductService {
 
     @Autowired
-    private final RabbitTemplate rabbitTemplate;
+    private RabbitTemplate rabbitTemplate;
 
     @Autowired
-    private final DirectExchange directExchange;
+    private DirectExchange directExchange;
 
     @Value("${routing-key.product}")
-    private final String productServiceKey;
+    private String productServiceKey;
 
 
     public List<PokemonCard> getPokemonCardList() {
@@ -37,7 +37,7 @@ public class ProductService {
         requestMessage.getMessageProperties().setType(GET_CARDS.toString());
         var returnMessage = rabbitTemplate.sendAndReceive(directExchange.getName(), productServiceKey, requestMessage);
 
-        if(returnMessage == null) {
+        if (returnMessage == null) {
             log.info("Return message is null. Sending empty list.");
             return new ArrayList<PokemonCard>();
         }
