@@ -47,26 +47,4 @@ public class ProductService {
                         }.getType()
                 );
     }
-
-    //        log.info("am HEEEEEERE");
-//        PokemonCard testCard = new PokemonCard()
-//                .setId(1)
-//                .setName("Kaka")
-//                .setDescription("kakaDescription")
-//                .setHp("12")
-//                .setType("kakaType")
-//                .setStage("kakaStage")
-//                .setExpansion("kakaExpansion")
-//                .setRarity("kakaRarity")
-//                .setNumber("kakaNumber")
-//                .setIllustrator("kakaIllustrator")
-//                .setPrice("kakaPrice");
-//
-//        log.info("POKEMON CREATED");
-//        ArrayList<PokemonCard> list = new ArrayList<PokemonCard>();
-//        list.add(testCard);
-//
-//        log.info("LIST CREATED");
-//        return list;
-
 }
