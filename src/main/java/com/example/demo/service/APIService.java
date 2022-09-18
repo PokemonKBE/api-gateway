@@ -15,7 +15,6 @@ public class APIService {
     private final ProductService productService;
 
     public List<PokemonCard> getPokemonCardList() {
-//        ProductService productService = new ProductService();
         return productService.getPokemonCardList();
     }
 }

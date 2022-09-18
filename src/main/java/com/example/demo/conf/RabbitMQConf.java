@@ -41,7 +41,7 @@ public class RabbitMQConf {
 
     @Bean
     ProductService productService() {
-        return new ProductService(rabbitTemplate, directExchange(), productKey);
+        return new ProductService();
     }
 
     @Bean
