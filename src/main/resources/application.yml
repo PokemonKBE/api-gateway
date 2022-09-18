@@ -1,0 +1,21 @@
+server:
+  port: 8082
+
+spring:
+  rabbitmq:
+    host: rabbitmq
+    port: 5672
+
+routing-key:
+  product: product_key
+  currency: currency_key
+  price: price_key
+
+queue:
+  product: product_queue
+  currency: currency_queue
+  price: price_queue
+
+xchange:
+  name: exchange_rpc
+
