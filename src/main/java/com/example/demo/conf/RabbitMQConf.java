@@ -1,5 +1,6 @@
 package com.example.demo.conf;
 
+import com.example.demo.service.CurrencyService;
 import com.example.demo.service.ProductService;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.amqp.support.converter.Jackson2JsonMessageConverter;
@@ -42,6 +43,11 @@ public class RabbitMQConf {
     @Bean
     ProductService productService() {
         return new ProductService();
+    }
+
+    @Bean
+    CurrencyService currencyService() {
+        return new CurrencyService();
     }
 
     @Bean

@@ -7,6 +7,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 
@@ -27,6 +28,11 @@ public class Controller {
     @GetMapping("/getAllDecks")
     public List<PokemonCardDeck> getPokemonCardDeck() {
         return apiService.getPokemonCardDeckList();
+    }
+
+    @GetMapping("/getCurrency")
+    public BigDecimal getCurrency(String currency, String price) {
+        return apiService.getCurrency(currency, price);
     }
 
 }
