@@ -1,6 +1,7 @@
 package com.example.demo.service;
 
 import com.example.demo.pokemon.PokemonCard;
+import com.example.demo.pokemon.PokemonCardDeck;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -16,5 +17,9 @@ public class APIService {
 
     public List<PokemonCard> getPokemonCardList() {
         return productService.getPokemonCardList();
+    }
+
+    public List<PokemonCardDeck> getPokemonCardDeckList() {
+        return productService.pokemonCardDeckList();
     }
 }

@@ -1,6 +1,6 @@
 package com.example.demo.pokemon;
 
-public enum Calls {
+public enum APICall {
     GET_CARDS,
     GET_DECKS,
     GET_PRICE,

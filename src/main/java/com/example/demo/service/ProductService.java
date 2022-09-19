@@ -1,6 +1,8 @@
 package com.example.demo.service;
 
+import com.example.demo.pokemon.APICall;
 import com.example.demo.pokemon.PokemonCard;
+import com.example.demo.pokemon.PokemonCardDeck;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import lombok.RequiredArgsConstructor;
@@ -15,7 +17,8 @@ import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.example.demo.pokemon.Calls.GET_CARDS;
+import static com.example.demo.pokemon.APICall.GET_CARDS;
+import static com.example.demo.pokemon.APICall.GET_DECKS;
 
 @RequiredArgsConstructor
 @Slf4j
@@ -31,11 +34,9 @@ public class ProductService {
     private String productServiceKey;
 
 
-    public List<PokemonCard> getPokemonCardList() {
+    protected List<PokemonCard> getPokemonCardList() {
 
-        var requestMessage = new Message("".getBytes());
-        requestMessage.getMessageProperties().setType(GET_CARDS.toString());
-        var returnMessage = rabbitTemplate.sendAndReceive(directExchange.getName(), productServiceKey, requestMessage);
+        Message returnMessage = productServiceRequest(GET_CARDS);
 
         if (returnMessage == null) {
             log.info("Return message is null. Sending empty list.");
@@ -46,5 +47,27 @@ public class ProductService {
                 .fromJson(new String(returnMessage.getBody(), StandardCharsets.UTF_8), new TypeToken<List<PokemonCard>>() {
                         }.getType()
                 );
+    }
+
+    protected List<PokemonCardDeck> pokemonCardDeckList() {
+        Message returnMessage = productServiceRequest(GET_DECKS);
+
+        if (returnMessage == null) {
+            log.info("Return message is null. Sending empty list.");
+            return new ArrayList<PokemonCardDeck>();
+        }
+
+        return new Gson()
+                .fromJson(new String(returnMessage.getBody(), StandardCharsets.UTF_8), new TypeToken<List<PokemonCardDeck>>() {
+                        }.getType()
+                );
+    }
+
+    private Message productServiceRequest(APICall requestType) {
+        var requestMessage = new Message("".getBytes());
+        requestMessage.getMessageProperties().setType(requestType.toString());
+        var returnMessage = rabbitTemplate.sendAndReceive(directExchange.getName(), productServiceKey, requestMessage);
+
+        return returnMessage;
     }
 }

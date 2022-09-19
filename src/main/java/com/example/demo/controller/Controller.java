@@ -1,6 +1,7 @@
 package com.example.demo.controller;
 
 import com.example.demo.pokemon.PokemonCard;
+import com.example.demo.pokemon.PokemonCardDeck;
 import com.example.demo.service.APIService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -19,10 +20,13 @@ public class Controller {
     private final APIService apiService;
 
     @GetMapping("/getAllCards")
-    public List<PokemonCard> getPokemonCards() {
-//        APIService apiService = new APIService();
-        log.info("get all Pokemon Cards endpoint called !!!!!!!!!!!!!!!!");
+    public List<PokemonCard> getPokemonCard() {
         return apiService.getPokemonCardList();
+    }
+
+    @GetMapping("/getAllDecks")
+    public List<PokemonCardDeck> getPokemonCardDeck() {
+        return apiService.getPokemonCardDeckList();
     }
 
 }
