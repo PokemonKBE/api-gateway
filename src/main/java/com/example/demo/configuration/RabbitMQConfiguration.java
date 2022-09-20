@@ -1,4 +1,4 @@
-package com.example.demo.conf;
+package com.example.demo.configuration;
 
 import com.example.demo.service.CurrencyService;
 import com.example.demo.service.ProductService;
@@ -14,7 +14,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-public class RabbitMQConf {
+public class RabbitMQConfiguration {
 
     @Value("${queue.product}")
     private String productQueue;

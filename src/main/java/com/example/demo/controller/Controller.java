@@ -1,7 +1,7 @@
 package com.example.demo.controller;
 
-import com.example.demo.pokemon.PokemonCard;
-import com.example.demo.pokemon.PokemonCardDeck;
+import com.example.demo.entity.PokemonCard;
+import com.example.demo.entity.PokemonCardDeck;
 import com.example.demo.service.APIService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

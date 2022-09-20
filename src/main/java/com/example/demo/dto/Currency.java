@@ -1,4 +1,4 @@
-package com.example.demo.pokemon.dto;
+package com.example.demo.dto;
 
 public enum Currency {
     EUR,
