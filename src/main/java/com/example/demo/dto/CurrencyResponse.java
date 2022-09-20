@@ -1,4 +1,4 @@
-package com.example.demo.pokemon.dto;
+package com.example.demo.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -14,9 +14,8 @@ import java.math.BigDecimal;
 @AllArgsConstructor
 @NoArgsConstructor
 @Accessors(chain = true)
-public class CurrencyRequest implements Serializable {
+public class CurrencyResponse implements Serializable {
 
-    private Currency wantedCurrency;
-    private BigDecimal price;
-
+    private BigDecimal currencyResponse;
 }
+

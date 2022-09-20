@@ -1,8 +1,8 @@
 package com.example.demo.service;
 
-import com.example.demo.pokemon.dto.Currency;
-import com.example.demo.pokemon.dto.CurrencyRequest;
-import com.example.demo.pokemon.dto.CurrencyResponse;
+import com.example.demo.dto.Currency;
+import com.example.demo.dto.CurrencyRequest;
+import com.example.demo.dto.CurrencyResponse;
 import com.google.gson.Gson;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

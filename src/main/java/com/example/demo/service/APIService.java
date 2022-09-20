@@ -1,7 +1,7 @@
 package com.example.demo.service;
 
-import com.example.demo.pokemon.PokemonCard;
-import com.example.demo.pokemon.PokemonCardDeck;
+import com.example.demo.entity.PokemonCard;
+import com.example.demo.entity.PokemonCardDeck;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;

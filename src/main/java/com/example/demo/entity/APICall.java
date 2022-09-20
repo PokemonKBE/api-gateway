@@ -1,4 +1,4 @@
-package com.example.demo.pokemon;
+package com.example.demo.entity;
 
 public enum APICall {
     GET_CARDS,

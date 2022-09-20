@@ -1,8 +1,8 @@
 package com.example.demo.service;
 
-import com.example.demo.pokemon.APICall;
-import com.example.demo.pokemon.PokemonCard;
-import com.example.demo.pokemon.PokemonCardDeck;
+import com.example.demo.entity.APICall;
+import com.example.demo.entity.PokemonCard;
+import com.example.demo.entity.PokemonCardDeck;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import lombok.RequiredArgsConstructor;
@@ -17,8 +17,8 @@ import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.example.demo.pokemon.APICall.GET_CARDS;
-import static com.example.demo.pokemon.APICall.GET_DECKS;
+import static com.example.demo.entity.APICall.GET_CARDS;
+import static com.example.demo.entity.APICall.GET_DECKS;
 
 @RequiredArgsConstructor
 @Slf4j
