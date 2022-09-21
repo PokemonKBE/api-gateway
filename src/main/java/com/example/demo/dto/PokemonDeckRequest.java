@@ -1,5 +1,6 @@
-package com.example.demo.entity;
+package com.example.demo.dto;
 
+import com.example.demo.dto.PokemonCardRequest;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -13,8 +14,8 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Accessors(chain = true)
-public class PokemonCardDeck {
+public class PokemonDeckRequest {
     private int id;
     private String name;
-    private List<PokemonCard> pokemonCardList;
+    private List<PokemonCardRequest> pokemonCardList;
 }
