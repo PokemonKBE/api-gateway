@@ -2,6 +2,11 @@ server:
   port: 8082
 
 spring:
+  jpa:
+    properties:
+      hibernate:
+        enable_lazy_load_no_trans: true
+
   rabbitmq:
     host: rabbitmq
     port: 5672

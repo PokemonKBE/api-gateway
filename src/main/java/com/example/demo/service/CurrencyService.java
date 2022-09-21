@@ -27,14 +27,7 @@ public class CurrencyService {
     @Value("${routing-key.currency}")
     private String currencyServiceKey;
 
-    protected BigDecimal getCurrency(String currency, String price) {
-
-        if(!isNumeral(price) || !EnumUtils.isValidEnum(Currency.class, currency)) {
-            return BigDecimal.ZERO;
-        }
-
-        CurrencyRequest currencyRequest = new CurrencyRequest(Currency.valueOf(currency), new BigDecimal(price));
-
+    protected BigDecimal getPriceInCurrency(CurrencyRequest currencyRequest) {
         Message requestMessage = new Message((new Gson().toJson(currencyRequest)).getBytes());
         var returnMessage = rabbitTemplate.sendAndReceive(directExchange.getName(), currencyServiceKey, requestMessage);
 
@@ -42,10 +35,9 @@ public class CurrencyService {
             log.info("Return message is null. Sending empty list.");
             return BigDecimal.ZERO;
         }
-
         CurrencyResponse currencyResponse = new Gson().fromJson(new String(returnMessage.getBody(), StandardCharsets.UTF_8), CurrencyResponse.class);
 
-        return currencyResponse.getCurrencyResponse();
+        return currencyResponse.getPrice();
     }
 
 

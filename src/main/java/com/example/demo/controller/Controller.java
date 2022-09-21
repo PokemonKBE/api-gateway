@@ -1,7 +1,6 @@
 package com.example.demo.controller;
 
-import com.example.demo.entity.PokemonCard;
-import com.example.demo.entity.PokemonCardDeck;
+import com.example.demo.dto.*;
 import com.example.demo.service.APIService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -20,19 +19,25 @@ public class Controller {
 
     private final APIService apiService;
 
-    @GetMapping("/getAllCards")
-    public List<PokemonCard> getPokemonCard() {
-        return apiService.getPokemonCardList();
+    @GetMapping("/get-cards")
+    public List<PokemonCardRequest> getPokemonCards() {
+        return apiService.getPokemonCards();
     }
 
-    @GetMapping("/getAllDecks")
-    public List<PokemonCardDeck> getPokemonCardDeck() {
-        return apiService.getPokemonCardDeckList();
+    @GetMapping("/get-decks")
+    public List<PokemonDeckRequest> getPokemonDecks() {
+        return apiService.getPokemonDecks();
     }
 
-    @GetMapping("/getCurrency")
-    public BigDecimal getCurrency(String currency, String price) {
-        return apiService.getCurrency(currency, price);
+    @RequestMapping(value = "/get-currency", method = RequestMethod.GET)
+    public BigDecimal getPriceInCurrency(CurrencyRequest currencyRequest) {
+
+        return apiService.getPriceInCurrency(currencyRequest);
     }
 
+    //send deck with @RequestBody
+    @PostMapping("/create-deck")
+    public PokemonDeckResponse createPokemonDeck(String pokemonCardList) {
+        return apiService.createPokemonDeck(pokemonCardList);
+    }
 }
