@@ -14,16 +14,4 @@ import lombok.experimental.Accessors;
 public class PokemonCardRequest {
 
     private int id;
-    private String name;
-    private String description;
-    private String hp;
-    private String type;
-    private String stage;
-    private String expansion;
-    private String rarity;
-    private String number;
-    private String illustrator;
-    private String price;
-
-
 }
