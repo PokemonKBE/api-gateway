@@ -15,7 +15,6 @@ import java.util.List;
 @AllArgsConstructor
 @Accessors(chain = true)
 public class PokemonDeckResponse {
-    private int id;
     private String name;
     private List<PokemonCardRequest> pokemonCardList;
     private BigDecimal totalPrice;

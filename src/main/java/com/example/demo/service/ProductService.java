@@ -70,7 +70,7 @@ public class ProductService {
 
         if (returnMessage == null) {
             return new PokemonDeckResponse()
-                    .setId(0).setName("INVALID")
+                    .setName("INVALID")
                     .setPokemonCardList(new ArrayList<>())
                     .setTotalPrice(BigDecimal.ZERO);
         }

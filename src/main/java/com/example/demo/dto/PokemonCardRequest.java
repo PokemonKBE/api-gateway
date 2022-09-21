@@ -13,5 +13,5 @@ import lombok.experimental.Accessors;
 @Accessors(chain = true)
 public class PokemonCardRequest {
 
-    private int id;
+    private long id;
 }
