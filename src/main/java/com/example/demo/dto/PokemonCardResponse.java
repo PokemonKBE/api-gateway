@@ -12,7 +12,7 @@ import lombok.experimental.Accessors;
 @AllArgsConstructor
 @Accessors(chain = true)
 public class PokemonCardResponse {
-    private int id;
+    private long id;
     private String name;
     private String description;
     private String hp;
