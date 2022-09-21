@@ -35,9 +35,8 @@ public class Controller {
         return apiService.getPriceInCurrency(currencyRequest);
     }
 
-    //send deck with @RequestBody
     @PostMapping("/create-deck")
-    public PokemonDeckResponse createPokemonDeck(String pokemonCardList) {
-        return apiService.createPokemonDeck(pokemonCardList);
+    public PokemonDeckResponse createPokemonDeck(@RequestBody PokemonDeckRequest deckRequest) {
+        return apiService.createPokemonDeck(deckRequest);
     }
 }

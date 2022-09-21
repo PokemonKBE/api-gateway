@@ -63,12 +63,8 @@ public class ProductService {
                 );
     }
 
-    protected PokemonDeckResponse createPokemonDeck(String pokemonCards) {
-        // TODO: 20.09.2022 get actual list from frontend. dont fuck around with Strings
-
-        PokemonDeckRequest testRequest = createTestPokemonDeck();
-
-        Message requestMessage = new Message((new Gson().toJson(testRequest)).getBytes());
+    protected PokemonDeckResponse createPokemonDeck(PokemonDeckRequest deckRequest) {
+        Message requestMessage = new Message((new Gson().toJson(deckRequest)).getBytes());
         requestMessage.getMessageProperties().setType(CREATE_DECK.toString());
         var returnMessage = rabbitTemplate.sendAndReceive(directExchange.getName(), productServiceKey, requestMessage);
 
@@ -90,22 +86,4 @@ public class ProductService {
         requestMessage.getMessageProperties().setType(requestType.toString());
         return rabbitTemplate.sendAndReceive(directExchange.getName(), productServiceKey, requestMessage);
     }
-
-    private PokemonDeckRequest createTestPokemonDeck() {
-        PokemonCardRequest testPokemonCard1 = new PokemonCardRequest().setId(0).setName("Test Name").setType("Test Type")
-                .setDescription("Test Description").setExpansion("Test Expansion").setHp("100").setIllustrator("Test Illustrator")
-                .setNumber("Test Number").setStage("Test Stage").setRarity("Test Rarity").setPrice("1.0");
-
-        PokemonCardRequest testPokemonCard2 = new PokemonCardRequest().setId(0).setName("Test Name").setType("Test Type")
-                .setDescription("Test Description").setExpansion("Test Expansion").setHp("100").setIllustrator("Test Illustrator")
-                .setNumber("Test Number").setStage("Test Stage").setRarity("Test Rarity").setPrice("2.0");
-
-
-        List<PokemonCardRequest> testList = new ArrayList<>();
-        testList.add(testPokemonCard1);
-        testList.add(testPokemonCard2);
-
-        return new PokemonDeckRequest().setId(0).setName("Test Deck").setPokemonCardList(testList);
-    }
-
 }

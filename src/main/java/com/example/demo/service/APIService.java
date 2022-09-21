@@ -31,7 +31,7 @@ public class APIService {
         return currencyService.getPriceInCurrency(currencyRequest);
     }
 
-    public PokemonDeckResponse createPokemonDeck(String pokemonCardList) {
-        return productService.createPokemonDeck(pokemonCardList);
+    public PokemonDeckResponse createPokemonDeck(PokemonDeckRequest deckRequest) {
+        return productService.createPokemonDeck(deckRequest);
     }
 }
