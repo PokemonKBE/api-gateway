@@ -16,6 +16,6 @@ import java.math.BigDecimal;
 @Accessors(chain = true)
 public class CurrencyResponse implements Serializable {
 
-    private BigDecimal currencyResponse;
+    private BigDecimal price;
 }
 
