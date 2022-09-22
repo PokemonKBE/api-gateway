@@ -24,3 +24,8 @@ queue:
 xchange:
   name: exchange_rpc
 
+keycloak:
+  realm: pokemon
+  auth-server-url: http://localhost:8080/auth
+  resource: spring-app
+  bearer-only: true
