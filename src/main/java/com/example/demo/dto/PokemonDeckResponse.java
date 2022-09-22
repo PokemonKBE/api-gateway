@@ -16,6 +16,6 @@ import java.util.List;
 @Accessors(chain = true)
 public class PokemonDeckResponse {
     private String name;
-    private List<PokemonCardRequest> pokemonCardList;
+    private List<PokemonCardResponse> pokemonCardList;
     private BigDecimal totalPrice;
 }

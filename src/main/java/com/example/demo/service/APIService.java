@@ -1,9 +1,6 @@
 package com.example.demo.service;
 
-import com.example.demo.dto.CurrencyRequest;
-import com.example.demo.dto.PokemonCardRequest;
-import com.example.demo.dto.PokemonDeckRequest;
-import com.example.demo.dto.PokemonDeckResponse;
+import com.example.demo.dto.*;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -19,11 +16,11 @@ public class APIService {
     private final ProductService productService;
     private final CurrencyService currencyService;
 
-    public List<PokemonCardRequest> getPokemonCards() {
+    public List<PokemonCardResponse> getPokemonCards() {
         return productService.getPokemonCards();
     }
 
-    public List<PokemonDeckRequest> getPokemonDecks() {
+    public List<PokemonDeckResponse> getPokemonDecks() {
         return productService.getPokemonDecks();
     }
 
