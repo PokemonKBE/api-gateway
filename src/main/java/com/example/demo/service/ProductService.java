@@ -1,6 +1,5 @@
 package com.example.demo.service;
 
-import com.example.demo.dto.PokemonCardRequest;
 import com.example.demo.dto.PokemonCardResponse;
 import com.example.demo.dto.PokemonDeckRequest;
 import com.example.demo.dto.PokemonDeckResponse;
@@ -73,7 +72,7 @@ public class ProductService {
             return new PokemonDeckResponse()
                     .setName("INVALID")
                     .setPokemonCardList(new ArrayList<>())
-                    .setTotalPrice(BigDecimal.ZERO);
+                    .setPrice(BigDecimal.ZERO);
         }
 
         PokemonDeckResponse pokemonDeckResponse = new Gson()

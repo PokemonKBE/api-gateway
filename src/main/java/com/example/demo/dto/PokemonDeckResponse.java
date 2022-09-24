@@ -18,5 +18,5 @@ public class PokemonDeckResponse {
     private long id;
     private String name;
     private List<PokemonCardResponse> pokemonCardList;
-    private BigDecimal totalPrice;
+    private BigDecimal price;
 }
