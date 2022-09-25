@@ -1,6 +1,7 @@
 package com.example.demo.service;
 
 import com.example.demo.dto.PokemonCardRequest;
+import com.example.demo.dto.PokemonCardResponse;
 import com.example.demo.dto.PokemonDeckRequest;
 import com.example.demo.dto.PokemonDeckResponse;
 import com.google.gson.Gson;
@@ -34,31 +35,31 @@ public class ProductService {
     private String productServiceKey;
 
 
-    protected List<PokemonCardRequest> getPokemonCards() {
+    protected List<PokemonCardResponse> getPokemonCards() {
 
         Message returnMessage = productServiceRequest(GET_CARDS);
 
         if (returnMessage == null) {
             log.info("Return message is null. Sending empty list.");
-            return new ArrayList<PokemonCardRequest>();
+            return new ArrayList<PokemonCardResponse>();
         }
 
         return new Gson()
-                .fromJson(new String(returnMessage.getBody(), StandardCharsets.UTF_8), new TypeToken<List<PokemonCardRequest>>() {
+                .fromJson(new String(returnMessage.getBody(), StandardCharsets.UTF_8), new TypeToken<List<PokemonCardResponse>>() {
                         }.getType()
                 );
     }
 
-    protected List<PokemonDeckRequest> getPokemonDecks() {
+    protected List<PokemonDeckResponse> getPokemonDecks() {
         Message returnMessage = productServiceRequest(GET_DECKS);
 
         if (returnMessage == null) {
             log.info("Return message is null. Sending empty list.");
-            return new ArrayList<PokemonDeckRequest>();
+            return new ArrayList<PokemonDeckResponse>();
         }
 
         return new Gson()
-                .fromJson(new String(returnMessage.getBody(), StandardCharsets.UTF_8), new TypeToken<List<PokemonDeckRequest>>() {
+                .fromJson(new String(returnMessage.getBody(), StandardCharsets.UTF_8), new TypeToken<List<PokemonDeckResponse>>() {
                         }.getType()
                 );
     }
@@ -70,7 +71,7 @@ public class ProductService {
 
         if (returnMessage == null) {
             return new PokemonDeckResponse()
-                    .setId(0).setName("INVALID")
+                    .setName("INVALID")
                     .setPokemonCardList(new ArrayList<>())
                     .setTotalPrice(BigDecimal.ZERO);
         }

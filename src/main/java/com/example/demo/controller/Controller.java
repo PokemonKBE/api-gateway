@@ -20,12 +20,12 @@ public class Controller {
     private final APIService apiService;
 
     @GetMapping("/get-cards")
-    public List<PokemonCardRequest> getPokemonCards() {
+    public List<PokemonCardResponse> getPokemonCards() {
         return apiService.getPokemonCards();
     }
 
     @GetMapping("/get-decks")
-    public List<PokemonDeckRequest> getPokemonDecks() {
+    public List<PokemonDeckResponse> getPokemonDecks() {
         return apiService.getPokemonDecks();
     }
 
@@ -36,7 +36,7 @@ public class Controller {
     }
 
     @PostMapping("/create-deck")
-    public PokemonDeckResponse createPokemonDeck(@RequestBody PokemonDeckRequest deckRequest) {
-        return apiService.createPokemonDeck(deckRequest);
+    public void createPokemonDeck(@RequestBody PokemonDeckRequest deckRequest) {
+        apiService.createPokemonDeck(deckRequest);
     }
 }
