@@ -35,6 +35,11 @@ public class Controller {
         return apiService.getPriceInCurrency(currencyRequest);
     }
 
+    @GetMapping("/get-fact")
+    public String getCatFact() {
+        return apiService.getPokemonFact();
+    }
+
     @PostMapping("/create-deck")
     public void createPokemonDeck(@RequestBody PokemonDeckRequest deckRequest) {
         apiService.createPokemonDeck(deckRequest);
