@@ -28,6 +28,10 @@ public class APIService {
         return currencyService.getPriceInCurrency(currencyRequest);
     }
 
+    public String getPokemonFact() {
+        return productService.getPokemonFact();
+    }
+
     public PokemonDeckResponse createPokemonDeck(PokemonDeckRequest deckRequest) {
         return productService.createPokemonDeck(deckRequest);
     }

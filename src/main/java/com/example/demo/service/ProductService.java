@@ -81,6 +81,20 @@ public class ProductService {
         return pokemonDeckResponse;
     }
 
+    protected String getPokemonFact() {
+        Message returnMessage = productServiceRequest(GET_FACT);
+
+        if (returnMessage == null) {
+            log.info("Return message is null. Sending empty list.");
+            return "I don't know anything about cats.";
+        }
+
+        return new Gson()
+                .fromJson(new String(returnMessage.getBody(), StandardCharsets.UTF_8), String.class);
+
+
+    }
+
     private Message productServiceRequest(APICall requestType) {
         var requestMessage = new Message("".getBytes());
         requestMessage.getMessageProperties().setType(requestType.toString());
